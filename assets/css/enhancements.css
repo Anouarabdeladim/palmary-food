@@ -120,6 +120,11 @@
 .hero.has-media .hero-sub{color:rgba(255,255,255,.9)}
 .hero.has-media .hero-scroll span{border-color:rgba(255,255,255,.5)}
 
+/* Titre du hero : taille proportionnee au viewport, responsive */
+.hero-title{font-size:clamp(1.9rem,4.2vw,3.1rem);line-height:1.12;margin-bottom:18px}
+@media (max-width:760px){.hero-title{font-size:clamp(1.7rem,7vw,2.4rem)}}
+@media (max-width:400px){.hero-title{font-size:1.6rem}}
+
 /* Entrée du hero en cascade */
 .hero-inner>*{opacity:0;transform:translateY(22px);animation:heroIn .9s var(--ease) forwards}
 .hero-inner>*:nth-child(1){animation-delay:.10s}
@@ -480,13 +485,13 @@
    ========================================================= */
 
 /* Barre transparente par-dessus la photo du hero */
-body:has(.hero.has-media) .site-header{
+body.has-hero-media .site-header{
   background:transparent;
   border-bottom:0;
   backdrop-filter:none;
   -webkit-backdrop-filter:none;
 }
-body:has(.hero.has-media) .site-header.is-stuck{
+body.has-hero-media .site-header.is-stuck{
   background:rgba(255,255,255,.97);
   border-bottom:1px solid var(--line);
   backdrop-filter:blur(10px);
@@ -495,61 +500,61 @@ body:has(.hero.has-media) .site-header.is-stuck{
 }
 
 /* Le hero remplit le viewport — la navbar (sticky, z-index 60) se pose dessus */
-body:has(.hero.has-media) .hero{min-height:100vh}
+body.has-hero-media .hero{min-height:100vh}
 
 /* Liens, langue, burger : blancs sur le hero */
-body:has(.hero.has-media) .site-header .nav-link{color:#fff}
-body:has(.hero.has-media) .site-header .nav-link::after{background:#fff}
-body:has(.hero.has-media) .site-header .nav-link:hover{color:rgba(255,255,255,.85)}
-body:has(.hero.has-media) .site-header .nav-link.is-current{color:#fff}
-body:has(.hero.has-media) .site-header .burger span{background:#fff}
-body:has(.hero.has-media) .site-header .burger:hover{background:rgba(255,255,255,.12)}
+body.has-hero-media .site-header .nav-link{color:#fff}
+body.has-hero-media .site-header .nav-link::after{background:#fff}
+body.has-hero-media .site-header .nav-link:hover{color:rgba(255,255,255,.85)}
+body.has-hero-media .site-header .nav-link.is-current{color:#fff}
+body.has-hero-media .site-header .burger span{background:#fff}
+body.has-hero-media .site-header .burger:hover{background:rgba(255,255,255,.12)}
 
 /* Langue : fond transparent, bordure blanche */
-body:has(.hero.has-media) .site-header .lang-toggle{
+body.has-hero-media .site-header .lang-toggle{
   background:rgba(255,255,255,.15);
   border-color:rgba(255,255,255,.4);
   color:#fff;
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
 }
-body:has(.hero.has-media) .site-header .lang-toggle:hover{
+body.has-hero-media .site-header .lang-toggle:hover{
   background:rgba(255,255,255,.25);
   border-color:#fff;
 }
 
 /* Logo dans un chip blanc pour rester lisible sur la photo */
-body:has(.hero.has-media) .site-header .brand{
+body.has-hero-media .site-header .brand{
   background:#fff;
   border-radius:10px;
   padding:5px 10px;
   transition:background .3s var(--ease);
 }
-body:has(.hero.has-media) .site-header.is-stuck .brand{
+body.has-hero-media .site-header.is-stuck .brand{
   background:transparent;
 }
 
 /* Au scroll (is-stuck) : restaurer les couleurs sombres */
-body:has(.hero.has-media) .site-header.is-stuck .nav-link{color:var(--ink)}
-body:has(.hero.has-media) .site-header.is-stuck .nav-link::after{background:var(--red)}
-body:has(.hero.has-media) .site-header.is-stuck .nav-link:hover{color:var(--red)}
-body:has(.hero.has-media) .site-header.is-stuck .burger span{background:var(--ink)}
-body:has(.hero.has-media) .site-header.is-stuck .burger:hover{background:rgba(223,39,29,.07)}
-body:has(.hero.has-media) .site-header.is-stuck .lang-toggle{
+body.has-hero-media .site-header.is-stuck .nav-link{color:var(--ink)}
+body.has-hero-media .site-header.is-stuck .nav-link::after{background:var(--red)}
+body.has-hero-media .site-header.is-stuck .nav-link:hover{color:var(--red)}
+body.has-hero-media .site-header.is-stuck .burger span{background:var(--ink)}
+body.has-hero-media .site-header.is-stuck .burger:hover{background:rgba(223,39,29,.07)}
+body.has-hero-media .site-header.is-stuck .lang-toggle{
   background:#fff;
   border-color:var(--line);
   color:var(--ink);
   backdrop-filter:none;
   -webkit-backdrop-filter:none;
 }
-body:has(.hero.has-media) .site-header.is-stuck .lang-toggle:hover{
+body.has-hero-media .site-header.is-stuck .lang-toggle:hover{
   border-color:var(--red);
   background:#FFF6F4;
 }
 
 /* Mobile : le tiroir est blanc, donc les liens doivent être sombres */
 @media (max-width:760px){
-  body:has(.hero.has-media) .site-header .nav.is-open .nav-link{color:var(--ink)}
-  body:has(.hero.has-media) .site-header .nav.is-open .nav-link::after{background:var(--red)}
-  body:has(.hero.has-media) .site-header .nav.is-open .nav-link:hover{color:var(--red)}
+  body.has-hero-media .site-header .nav.is-open .nav-link{color:var(--ink)}
+  body.has-hero-media .site-header .nav.is-open .nav-link::after{background:var(--red)}
+  body.has-hero-media .site-header .nav.is-open .nav-link:hover{color:var(--red)}
 }
