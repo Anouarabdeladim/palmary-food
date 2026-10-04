@@ -494,10 +494,8 @@ body:has(.hero.has-media) .site-header.is-stuck{
   box-shadow:0 6px 28px rgba(46,37,30,.10);
 }
 
-/* Le hero remonte sous la barre transparente */
-body:has(.hero.has-media) .hero{margin-top:-72px}
-@media (max-width:900px){body:has(.hero.has-media) .hero{margin-top:-66px}}
-@media (max-width:760px){body:has(.hero.has-media) .hero{margin-top:-64px}}
+/* Le hero remplit le viewport — la navbar (sticky, z-index 60) se pose dessus */
+body:has(.hero.has-media) .hero{min-height:100vh}
 
 /* Liens, langue, burger : blancs sur le hero */
 body:has(.hero.has-media) .site-header .nav-link{color:#fff}
