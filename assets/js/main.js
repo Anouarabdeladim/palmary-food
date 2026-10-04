@@ -104,6 +104,63 @@
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ---------- Voile sombre derrière le tiroir mobile ---------- */
+  var scrim = document.createElement('div');
+  scrim.className = 'nav-scrim';
+  scrim.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(scrim);
+
+  var lockScroll = function (on) {
+    document.body.style.overflow = on ? 'hidden' : '';
+  };
+
+  var originalClose = closeNav;
+  closeNav = function () {
+    originalClose();
+    scrim.classList.remove('is-on');
+    lockScroll(false);
+  };
+
+  /* Intercepte l'ouverture pour poser le voile + le verrou */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#burger') && nav && nav.classList.contains('is-open') === false) {
+      scrim.classList.add('is-on');
+      lockScroll(true);
+    }
+  }, true);
+
+  scrim.addEventListener('click', closeNav);
+
+  /* Piège à focus dans le menu ouvert (accessibilité clavier) */
+  if (nav && burger) {
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || !nav.classList.contains('is-open')) return;
+      var f = nav.querySelectorAll('a, button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
+  /* ---------- Lien de navigation actif (au défilement) ---------- */
+  var sections = ['produits', 'marques', 'engagements', 'actualites'];
+  var navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function (l) {
+          l.classList.toggle('is-current', l.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+
   /* ---------- Barre de progression de lecture ---------- */
   var bar = document.getElementById('readProgress');
   var toTop = document.getElementById('toTop');
