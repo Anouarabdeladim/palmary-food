@@ -474,3 +474,84 @@
 @media (prefers-reduced-motion:reduce){
   .brand-logo{transition:none}
 }
+
+/* =========================================================
+   Navbar transparente sur le hero (pages avec .hero.has-media)
+   ========================================================= */
+
+/* Barre transparente par-dessus la photo du hero */
+body:has(.hero.has-media) .site-header{
+  background:transparent;
+  border-bottom:0;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+body:has(.hero.has-media) .site-header.is-stuck{
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 6px 28px rgba(46,37,30,.10);
+}
+
+/* Le hero remonte sous la barre transparente */
+body:has(.hero.has-media) .hero{margin-top:-72px}
+@media (max-width:900px){body:has(.hero.has-media) .hero{margin-top:-66px}}
+@media (max-width:760px){body:has(.hero.has-media) .hero{margin-top:-64px}}
+
+/* Liens, langue, burger : blancs sur le hero */
+body:has(.hero.has-media) .site-header .nav-link{color:#fff}
+body:has(.hero.has-media) .site-header .nav-link::after{background:#fff}
+body:has(.hero.has-media) .site-header .nav-link:hover{color:rgba(255,255,255,.85)}
+body:has(.hero.has-media) .site-header .nav-link.is-current{color:#fff}
+body:has(.hero.has-media) .site-header .burger span{background:#fff}
+body:has(.hero.has-media) .site-header .burger:hover{background:rgba(255,255,255,.12)}
+
+/* Langue : fond transparent, bordure blanche */
+body:has(.hero.has-media) .site-header .lang-toggle{
+  background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.4);
+  color:#fff;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+body:has(.hero.has-media) .site-header .lang-toggle:hover{
+  background:rgba(255,255,255,.25);
+  border-color:#fff;
+}
+
+/* Logo dans un chip blanc pour rester lisible sur la photo */
+body:has(.hero.has-media) .site-header .brand{
+  background:#fff;
+  border-radius:10px;
+  padding:5px 10px;
+  transition:background .3s var(--ease);
+}
+body:has(.hero.has-media) .site-header.is-stuck .brand{
+  background:transparent;
+}
+
+/* Au scroll (is-stuck) : restaurer les couleurs sombres */
+body:has(.hero.has-media) .site-header.is-stuck .nav-link{color:var(--ink)}
+body:has(.hero.has-media) .site-header.is-stuck .nav-link::after{background:var(--red)}
+body:has(.hero.has-media) .site-header.is-stuck .nav-link:hover{color:var(--red)}
+body:has(.hero.has-media) .site-header.is-stuck .burger span{background:var(--ink)}
+body:has(.hero.has-media) .site-header.is-stuck .burger:hover{background:rgba(223,39,29,.07)}
+body:has(.hero.has-media) .site-header.is-stuck .lang-toggle{
+  background:#fff;
+  border-color:var(--line);
+  color:var(--ink);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+body:has(.hero.has-media) .site-header.is-stuck .lang-toggle:hover{
+  border-color:var(--red);
+  background:#FFF6F4;
+}
+
+/* Mobile : le tiroir est blanc, donc les liens doivent être sombres */
+@media (max-width:760px){
+  body:has(.hero.has-media) .site-header .nav.is-open .nav-link{color:var(--ink)}
+  body:has(.hero.has-media) .site-header .nav.is-open .nav-link::after{background:var(--red)}
+  body:has(.hero.has-media) .site-header .nav.is-open .nav-link:hover{color:var(--red)}
+}
