@@ -294,7 +294,7 @@
 /* ---------- Logo ---------- */
 .brand{display:flex;align-items:center;flex:0 0 auto}
 .brand-logo{
-  height:30px;width:auto;display:block;
+  height:24px;width:auto;display:block;
   transition:transform .3s var(--ease),opacity .25s var(--ease)
 }
 .brand:hover .brand-logo{transform:scale(1.04)}
@@ -309,7 +309,7 @@
 .site-header .header-inner{transition:height .3s var(--ease)}
 .site-header.is-stuck{background:rgba(255,255,255,.97);box-shadow:0 6px 28px rgba(46,37,30,.10)}
 .site-header.is-stuck .header-inner{height:64px}
-.site-header.is-stuck .brand-logo{height:26px}
+.site-header.is-stuck .brand-logo{height:22px}
 
 /* ---------- Liens : soulignement animé ---------- */
 .nav{gap:2px}
@@ -367,7 +367,7 @@
   .nav-link{padding:0 10px;font-size:14.5px}
   .nav-link::after{left:10px;right:10px}
   .nav-cta{margin-inline-start:6px;padding:9px 16px;font-size:14px}
-  .brand-logo{height:28px}
+  .brand-logo{height:23px}
 }
 
 /* --- Menu mobile : tiroir plein écran --- */
@@ -375,7 +375,7 @@
   .site-header{position:sticky}
   .header-inner{height:64px;gap:12px}
   .site-header.is-stuck .header-inner{height:60px}
-  .brand-logo{height:27px}
+  .brand-logo{height:22px}
 
   .burger{display:block;order:3}
 
@@ -440,7 +440,7 @@
 
 /* --- Très petits écrans --- */
 @media (max-width:400px){
-  .brand-logo{height:24px}
+  .brand-logo{height:20px}
   .lang-toggle{padding:0 10px}
   .nav{padding-inline:20px}
 }
