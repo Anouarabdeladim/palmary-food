@@ -294,11 +294,11 @@
 /* ---------- Logo ---------- */
 .brand{display:flex;align-items:center;flex:0 0 auto}
 .brand-logo{
-  height:40px;width:auto;display:block;
+  height:30px;width:auto;display:block;
   transition:transform .3s var(--ease),opacity .25s var(--ease)
 }
 .brand:hover .brand-logo{transform:scale(1.04)}
-.brand-logo{object-fit:contain}
+.brand-logo{object-fit:contain;max-width:min(150px,42vw)}
 
 /* Le logo contient déjà le mot « palmary » : plus de texte à côté */
 
@@ -309,7 +309,7 @@
 .site-header .header-inner{transition:height .3s var(--ease)}
 .site-header.is-stuck{background:rgba(255,255,255,.97);box-shadow:0 6px 28px rgba(46,37,30,.10)}
 .site-header.is-stuck .header-inner{height:64px}
-.site-header.is-stuck .brand-logo{height:34px}
+.site-header.is-stuck .brand-logo{height:26px}
 
 /* ---------- Liens : soulignement animé ---------- */
 .nav{gap:2px}
@@ -367,7 +367,7 @@
   .nav-link{padding:0 10px;font-size:14.5px}
   .nav-link::after{left:10px;right:10px}
   .nav-cta{margin-inline-start:6px;padding:9px 16px;font-size:14px}
-  .brand-logo{height:36px}
+  .brand-logo{height:28px}
 }
 
 /* --- Menu mobile : tiroir plein écran --- */
@@ -375,7 +375,7 @@
   .site-header{position:sticky}
   .header-inner{height:64px;gap:12px}
   .site-header.is-stuck .header-inner{height:60px}
-  .brand-logo{height:34px}
+  .brand-logo{height:27px}
 
   .burger{display:block;order:3}
 
@@ -440,7 +440,7 @@
 
 /* --- Très petits écrans --- */
 @media (max-width:400px){
-  .brand-logo{height:30px}
+  .brand-logo{height:24px}
   .lang-toggle{padding:0 10px}
   .nav{padding-inline:20px}
 }
@@ -448,4 +448,29 @@
 @media (prefers-reduced-motion:reduce){
   .nav-link,.nav-cta,.brand-logo{transition:none}
   .nav{transition:none}
+}
+
+/* =========================================================
+   Échelle du logo — harmonie avec la barre de navigation
+   ========================================================= */
+
+/* Pied de page : meme famille de taille que l'en-tete, un cran au-dessus */
+.footer-logo{
+  height:44px;width:auto;display:block;object-fit:contain
+}
+.footer-brand{display:flex;align-items:center;margin-bottom:14px}
+
+/* L'espace reserve doit correspondre a la taille reelle (evite tout saut) */
+.brand-logo{aspect-ratio:1787 / 1059}
+
+/* Le logo est une forme pleine et coloree : on lui laisse un leger
+   respire optique a droite pour qu'il ne colle pas au premier lien */
+.brand{padding-inline-end:6px}
+
+@media (max-width:760px){
+  .footer-logo{height:38px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .brand-logo{transition:none}
 }
