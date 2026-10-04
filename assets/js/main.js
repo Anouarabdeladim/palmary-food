@@ -104,6 +104,32 @@
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ---------- Barre de progression de lecture ---------- */
+  var bar = document.getElementById('readProgress');
+  var toTop = document.getElementById('toTop');
+  var heroMedia = document.querySelector('.hero-media img');
+
+  function onScrollFx() {
+    var y = window.scrollY;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (bar && h > 0) bar.style.width = Math.min(100, (y / h) * 100) + '%';
+    if (toTop) toTop.classList.toggle('is-on', y > 520);
+
+    /* Parallaxe douce sur l'image du hero */
+    if (heroMedia && y < window.innerHeight * 1.2) {
+      heroMedia.style.transform = 'scale(1.06) translateY(' + (y * 0.18) + 'px)';
+    }
+  }
+  onScrollFx();
+  window.addEventListener('scroll', onScrollFx, { passive: true });
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   /* ---------- Bandeau de marques : duplication pour une boucle sans couture ---------- */
   var track = document.getElementById('marqueeTrack');
   if (track) {

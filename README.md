@@ -3,69 +3,119 @@
 > ⚠️ **Avertissement.** Ce dépôt est une **reproduction technique à but pédagogique**
 > du site `palmaryfood.com`. Il **n'est pas affilié, approuvé ou sponsorisé** par la
 > société Palmary Food. Toutes les marques, logos et photographies appartiennent à
-> leurs détenteurs respectifs et **ne sont pas reproduits ici** : les visuels et
-> les textes sont des créations originales, inspirées de la structure d'ensemble.
+> leurs détenteurs respectifs et **ne sont pas reproduits ici** : les visuels sont
+> générés et les textes sont des créations originales, inspirées de la structure d'ensemble.
 
 ## Contenu
 
 ```
 palmary-food/
-├── index.html              # page unique (structure + contenu)
+├── index.html              # page d'accueil
+├── contact.html            # page Contact (formulaire -> Supabase)
 ├── assets/
-│   ├── css/style.css       # design system complet
-│   └── js/main.js          # menu mobile, sous-menu, reveal, marquee
+│   ├── img/                # 10 photos WebP (968 Ko au total)
+│   ├── css/
+│   │   ├── style.css           # design system de base
+│   │   └── enhancements.css    # i18n, animations, formulaire, RTL
+│   └── js/
+│       ├── config.js           # <-- CLES SUPABASE A REMPLIR ICI
+│       ├── i18n.js             # module multilingue
+│       ├── i18n-boot.js        # chargeur des traductions
+│       ├── contact.js          # envoi vers Supabase
+│       ├── main.js             # menu, animations, parallaxe
+│       └── locales/
+│           ├── fr.json         # 75 cles
+│           ├── en.json         # 75 cles
+│           └── ar.json         # 75 cles (+ RTL)
 └── README.md
 ```
 
 ## Technologies
 
-HTML5 · CSS3 (variables, grid, flexbox, mask-image) · JavaScript vanilla.
-Aucune dépendance, aucun build, aucun framework. Ouvrez `index.html` et ça marche.
+HTML5 · CSS3 (variables, grid, flexbox, mask-image) · JavaScript vanilla ·
+**i18next** (CDN) · **Supabase** (API REST).
+Aucun build, aucun framework, aucune dépendance à installer.
 
-## Sections reproduites
+## Mise en route du formulaire
 
-| Section | Ancre | Contenu |
+Le formulaire est **déjà codé**, mais il ne peut rien envoyer tant que
+`assets/js/config.js` n'est pas renseigné :
+
+```js
+supabase: {
+  url:     'https://VOTRE-PROJET.supabase.co',  // Project Settings -> Data API
+  anonKey: 'sb_publishable_...'                 // Project Settings -> API Keys
+}
+```
+
+### Où trouver les clés dans Supabase
+
+1. Ouvrez votre projet sur `supabase.com`
+2. Bouton **"Connect"** en haut à gauche — la fenêtre affiche déjà l'URL et la clé
+3. Ou : **Project Settings** (roue dentée, bas de la barre de gauche)
+   - **Data API** → `Project URL`
+   - **API Keys** → `Publishable key`
+
+### Quelle clé utiliser
+
+| Clé | Usage | Dans ce projet |
 |---|---|---|
-| En-tête | `#top` | Logo, navigation, sous-menu « Palmary group », CTA |
-| Hero | — | Titre, accroche, bouton d'appel à l'action |
-| Nos produits | `#produits` | 6 gammes (biscuiterie, culinaire, gaufrettes, génoise, chocolat, chocolat à tartiner) |
-| Nos marques | `#marques` | Bandeau défilant + bandeau d'excellence |
-| Notre raison d'être | `#apropos` | Section sombre, « Notre raison d'être » |
-| Engagements | `#engagements` | 4 piliers : employés, innovation, environnement, joie |
-| Actualités | `#actualites` | 2 articles |
+| `sb_publishable_...` (ou l'ancienne `anon`) | navigateur, publique | ✅ **celle-ci** |
+| `sb_secret_...` (ou l'ancienne `service_role`) | serveur, tout-puissante | ❌ **jamais** |
 
-## Charte reprise du site officiel
+La clé publishable est publique **par conception** : ce qui protège vos données,
+ce sont les politiques RLS de la table, pas la clé. Sans policy `SELECT` pour le
+rôle `anon`, personne ne peut lire les messages depuis le navigateur.
 
-Les couleurs ci-dessous ont été relevées sur les feuilles de style publiques du
-site officiel :
+## Base de données
 
-| Rôle | Valeur |
-|---|---|
-| Rouge de marque | `#DF271D` |
-| Rouge foncé | `#C12A21` |
-| Or / bronze | `#A37D5A` |
-| Brun | `#A27D6F` |
-| Encre (texte fort) | `#2E251E` |
-| Accents-produits | `#FFBC7D` · `#6EC1E4` · `#61CE70` |
+Table `public.messages` — créée via le SQL Editor :
 
-Typographie : `Poppins` (titres) + `Roboto` (texte courant).
+| Colonne | Type | Rôle |
+|---|---|---|
+| `id` | uuid | clé primaire |
+| `created_at` | timestamptz | horodatage d'envoi |
+| `name` | text | nom du visiteur |
+| `email` | text | e-mail (validé par contrainte) |
+| `phone` | text | facultatif |
+| `subject` | text | facultatif |
+| `message` | text | contenu (20 à 5000 caractères) |
+| `status` | text | `unread` / `read` / `archived` |
+| `locale` | text | langue utilisée à l'envoi |
 
-## Fonctionnalités
+**Consultez vos messages** : menu **Table Editor** → table `messages`.
 
-- **Menu mobile** — burger animé, panneau plein écran, fermeture au clic extérieur
-- **Sous-menu au survol** sur desktop, au clic sur mobile
-- **Bandeau de marques** — défilement infini sans couture (dupliqué en JS)
-- **Révélation au défilement** — `IntersectionObserver`, décalage en cascade
-- **Responsive** — 3 points de rupture (900 / 760 / 560 px)
-- **Accessibilité** — attributs ARIA, focus visible, navigation clavier
-- **`prefers-reduced-motion`** respecté
+## Multilingue (i18next)
+
+- 3 langues : **Français**, **Anglais**, **Arabe** (bascule complète en RTL)
+- Détection automatique de la langue du navigateur
+- Choix mémorisé dans le navigateur
+- 75 clés par langue, alignées et vérifiées automatiquement
+- Si le CDN est indisponible, le site reste intégralement lisible en français
+
+## Animations
+
+Entrée en cascade du hero · parallaxe douce sur l'image · révélation au
+défilement · zoom des cartes au survol · reflet glissant sur les boutons ·
+barre de progression de lecture · bouton « haut de page » · bandeau de marques
+à défilement infini.
+
+Tout est **automatiquement neutralisé** si le visiteur a demandé moins de
+mouvement (`prefers-reduced-motion`).
+
+## Performance
+
+Les 10 photographies pèsent **968 Ko au total** (17,9 Mo de PNG sources réduits
+de 95 % en WebP). Images en `loading="lazy"`, dimensions explicites, aucune
+cumulative layout shift.
 
 ## Mise en ligne (GitHub Pages)
 
 1. *Settings* → *Pages*
 2. *Source* : **Deploy from a branch**
 3. Branche : **main** · dossier : **/ (root)**
-4. *Save* → le site est en ligne
+4. *Save* → site en ligne à
+   `https://<votre-compte>.github.io/palmary-food/`
 
 ## Licence
 

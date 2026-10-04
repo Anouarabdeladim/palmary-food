@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Palmary — We create delicious moments of joy",
+    "description": "Biscuits, wafers, sponge cake, chocolate and culinary products. An Algerian biscuit group committed to quality and sharing."
+  },
+  "disclaimer": {
+    "text": "Demonstration site. A technical reproduction for educational purposes, not affiliated with Palmary Food."
+  },
+  "brand": { "name": "Palmary", "group": "Palmary group" },
+  "nav": {
+    "group": "Palmary group",
+    "groupTag": "We create delicious moments of joy!",
+    "history": "Our story",
+    "products": "Our products",
+    "brands": "Our brands",
+    "commitments": "Commitments",
+    "news": "News",
+    "contact": "Contact",
+    "language": "Language",
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "hero": {
+    "title": "We create delicious moments of joy!",
+    "subtitle": "Biscuits, wafers, sponge cake, chocolate: products designed for everyone's pleasure, every day.",
+    "cta": "Our story"
+  },
+  "products": {
+    "title": "Our delicious products",
+    "lead": "Tasting is a wonderful emotion, meant to be passed on and shared. This know-how drives each of our ranges and is found in every one of our products. Discover our worlds.",
+    "more": "Discover",
+    "biscuiterie": { "title": "Biscuits", "text": "Shortbread, petit-beurre and cookies for sweet breaks." },
+    "culinaire": { "title": "Culinary", "text": "Coatings, ganaches and toppings for professional pastry." },
+    "gaufrettes": { "title": "Wafers", "text": "Crispy wafers and cones, light and crunchy." },
+    "genoise": { "title": "Sponge cake", "text": "Soft cakes and light bases for all your creations." },
+    "chocolat": { "title": "Chocolate", "text": "Bars, truffles and chocolate chunks for cocoa lovers." },
+    "tartiner": { "title": "Chocolate spread", "text": "A silky texture to spread on bread or crêpes." }
+  },
+  "brands": {
+    "title": "So loved brands!",
+    "award": "A GREAT MOMENT OF EXCELLENCE!"
+  },
+  "reason": {
+    "eyebrow": "Purpose",
+    "title": "Our reason for being",
+    "text": "We want to bring everyone, in small moments as well as great occasions, a delicious moment of joy.",
+    "cta": "Discover our commitments"
+  },
+  "commitments": {
+    "title": "Commitments",
+    "lead": "We are fundamentally committed to the well-being of our employees and to preserving the environment. We are passionately dedicated to imagining quality products that anticipate our customers' needs and share delicious moments of joy.",
+    "employees": "Our employees",
+    "innovation": "Innovation",
+    "environment": "Environment",
+    "joie": "Joy"
+  },
+  "news": {
+    "title": "Follow our news",
+    "all": "All news",
+    "sial": "SIAL 2024 participation",
+    "iso": "ISO certification"
+  },
+  "contact": {
+    "title": "Contact us",
+    "lead": "A question, a professional project or a partnership request? Write to us, our team replies within 48 hours.",
+    "name": "Full name",
+    "namePlaceholder": "Your name",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+213 5 00 00 00 00",
+    "subject": "Subject",
+    "subjectPlaceholder": "What would you like to tell us?",
+    "message": "Message",
+    "messagePlaceholder": "Your message…",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "required": "Required field",
+    "invalidEmail": "Invalid email address",
+    "tooShort": "Please write at least 20 characters",
+    "success": "Thank you! Your message has been sent. We reply within 48 hours.",
+    "error": "An error occurred. Please try again shortly.",
+    "consent": "By sending this form, you agree that your information will be used to reply to you."
+  },
+  "footer": {
+    "tagline": "We create delicious moments of joy!",
+    "nav": "Navigation",
+    "contact": "Contact",
+    "address": "Industrial zone, Lot 29 & 30, Kherruba, Boumerdès — Algeria",
+    "copyright": "Demonstration clone for educational purposes. Not affiliated with Palmary Food."
+  }
+}

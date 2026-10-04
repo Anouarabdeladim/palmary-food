@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Palmary — Nous créons de délicieux moments de joie",
+    "description": "Biscuiterie, gaufrettes, génoise, chocolat et produits culinaires. Un groupe biscuitier algérien engagé dans la qualité et le partage."
+  },
+  "disclaimer": {
+    "text": "Site de démonstration. Reproduction technique à but pédagogique, sans lien avec la société Palmary Food."
+  },
+  "brand": { "name": "Palmary", "group": "Palmary group" },
+  "nav": {
+    "group": "Palmary group",
+    "groupTag": "Nous créons de délicieux moments de joie !",
+    "history": "Notre histoire",
+    "products": "Nos produits",
+    "brands": "Nos marques",
+    "commitments": "Engagements",
+    "news": "Actualités",
+    "contact": "Contact",
+    "language": "Langue",
+    "open": "Ouvrir le menu",
+    "close": "Fermer le menu"
+  },
+  "hero": {
+    "title": "Nous créons de délicieux moments de joie !",
+    "subtitle": "Biscuiterie, gaufrettes, génoise, chocolat : des produits conçus pour le plaisir de tous, chaque jour.",
+    "cta": "Notre histoire"
+  },
+  "products": {
+    "title": "Nos produits délicieux",
+    "lead": "L'expérience gustative est une émotion merveilleuse, faite pour se transmettre et se partager. Ce savoir-faire anime chacune de nos gammes et se retrouve dans chacun de nos produits. Découvrez nos univers.",
+    "more": "Découvrir",
+    "biscuiterie": { "title": "Biscuiterie", "text": "Sablés, petit-beurre et cookies pour les pauses gourmandes." },
+    "culinaire": { "title": "Culinaire", "text": "Nappages, ganaches et toppings pour la pâtisserie professionnelle." },
+    "gaufrettes": { "title": "Gaufrettes", "text": "Gaufrettes croustillantes et cornets, léger et croustillant." },
+    "genoise": { "title": "Génoise", "text": "Gâteaux moelleux et bases légères pour toutes vos créations." },
+    "chocolat": { "title": "Chocolat", "text": "Tablettes, truffes et éclats de chocolat pour les amateurs de cacao." },
+    "tartiner": { "title": "Chocolat à tartiner", "text": "Une texture onctueuse à tartiner sur le pain ou les crêpes." }
+  },
+  "brands": {
+    "title": "Des marques tant aimées !",
+    "award": "UN GRAND MOMENT D'EXCELLENCE !"
+  },
+  "reason": {
+    "eyebrow": "Objectif",
+    "title": "Notre raison d'être",
+    "text": "Nous voulons apporter à chacun, dans les petits moments comme dans les grandes occasions, un moment de joie délicieux.",
+    "cta": "Découvrir nos engagements"
+  },
+  "commitments": {
+    "title": "Engagements",
+    "lead": "Nous nous engageons fondamentalement au bien-être de nos employés et à la préservation de l'environnement. Nous sommes passionnément engagés à imaginer des produits de qualité pour anticiper les besoins de nos clients et partager des moments de joie délicieux.",
+    "employees": "Nos employés",
+    "innovation": "Innovation",
+    "environment": "Environnement",
+    "joie": "Joie"
+  },
+  "news": {
+    "title": "Suivez nos actualités",
+    "all": "Toutes les nouvelles",
+    "sial": "Participation SIAL 2024",
+    "iso": "Certification ISO"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "lead": "Une question, un projet professionnel ou une demande de partenariat ? Écrivez-nous, notre équipe vous répond sous 48 heures.",
+    "name": "Nom complet",
+    "namePlaceholder": "Votre nom",
+    "email": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+213 5 00 00 00 00",
+    "subject": "Sujet",
+    "subjectPlaceholder": "De quoi souhaitez-vous nous parler ?",
+    "message": "Message",
+    "messagePlaceholder": "Votre message…",
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours…",
+    "required": "Champ obligatoire",
+    "invalidEmail": "Adresse e-mail invalide",
+    "tooShort": "Merci d'écrire au moins 20 caractères",
+    "success": "Merci ! Votre message a bien été envoyé. Nous vous répondons sous 48 heures.",
+    "error": "Une erreur est survenue. Merci de réessayer dans quelques instants.",
+    "consent": "En envoyant ce formulaire, vous acceptez que vos informations soient utilisées pour vous répondre."
+  },
+  "footer": {
+    "tagline": "Nous créons de délicieux moments de joie !",
+    "nav": "Navigation",
+    "contact": "Contact",
+    "address": "Zone industrielle, Lot 29 & 30, Kherruba, Boumerdès — Algérie",
+    "copyright": "Clone de démonstration à but pédagogique. Non affilié à la société Palmary Food."
+  }
+}
