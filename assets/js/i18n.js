@@ -59,6 +59,17 @@
     document.querySelectorAll('[data-lang-option]').forEach(function (b) {
       b.setAttribute('aria-current', b.getAttribute('data-lang-option') === code ? 'true' : 'false');
     });
+
+    if (window.PALMARY.updateLangLabel) window.PALMARY.updateLangLabel(code);
+
+    // i18next v21+ : changeLanguage() est ASYNCHRONE (retourne une promesse).
+    // Appliquer les traductions via l'événement 'languageChanged', émis UNE
+    // FOIS la nouvelle langue réellement chargée — sinon applyTranslations()
+    // tourne avec l'ancien dictionnaire et rien ne change dans le DOM.
+    if (!window.__palmaryLangListener && window.i18next && window.i18next.on) {
+      window.i18next.on('languageChanged', applyTranslations);
+      window.__palmaryLangListener = true;
+    }
   }
 
   /* ---------- Sélecteur de langue ---------- */
@@ -138,6 +149,10 @@
       interpolation: { escapeValue: false }
     }, function () {
       setLanguage(window.i18next.language);
+      if (!window.__palmaryLangListener && window.i18next.on) {
+        window.i18next.on('languageChanged', applyTranslations);
+        window.__palmaryLangListener = true;
+      }
       applyTranslations();
       if (window.PALMARY.updateLangLabel) window.PALMARY.updateLangLabel(window.i18next.language);
       document.dispatchEvent(new CustomEvent('palmary:i18n-ready'));

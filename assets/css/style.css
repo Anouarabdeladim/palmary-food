@@ -31,7 +31,8 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
-html{scroll-behavior:smooth;scroll-padding-top:88px}
+html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:hidden}
+body{overflow-x:hidden}
 
 body{
   margin:0;
@@ -302,7 +303,7 @@ img,svg{max-width:100%;display:block}
   .footer-about{max-width:none}
 }
 
-@media (max-width:760px){
+@media (max-width:1000px){
   html{scroll-padding-top:76px}
   .header-inner{height:66px}
 
