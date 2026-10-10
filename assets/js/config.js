@@ -12,8 +12,8 @@
    ---------------------------------------------------------- */
 window.SITE_CONFIG = {
   supabase: {
-    url: 'https://VOTRE-PROJET.supabase.co',
-    anonKey: 'VOTRE_CLE_ANON_ICI'
+    url: 'https://lpitleusqajllppzvhqn.supabase.co',
+    anonKey: 'sb_publishable_BI7xA91xOM-AgBkTt66RBg_kOoSWgeb'
   },
 
   /* Langue par défaut si le navigateur n'en propose aucune */
